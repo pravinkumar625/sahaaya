@@ -1,0 +1,38 @@
+{
+  "name": "sahaay",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sahaay — A Gemini-powered universal bridge that converts messy, unstructured real-world inputs into structured, verified, life-saving actions in real time.",
+  "author": "Sahaay Team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "framer-motion": "^11.3.0",
+    "lucide-react": "^0.408.0",
+    "prop-types": "^15.8.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.3.4",
+    "tailwindcss": "^3.4.6",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.40",
+    "vitest": "^2.0.5",
+    "@vitest/coverage-v8": "^2.0.5",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/user-event": "^14.5.2",
+    "jsdom": "^24.1.3"
+  }
+}

@@ -1,0 +1,243 @@
+export const demoScenarios = [
+  {
+    id: 'health',
+    label: 'Health Emergency',
+    icon: '🫀',
+    domain: 'Health',
+    color: '#FF4D6D',
+    description: 'Chest pain + prescription photo',
+    tagline: 'Cardiac event identified in seconds',
+    inputs: {
+      text: "Severe chest pain radiating to my left arm, started about 20 minutes ago. I'm also short of breath and sweating heavily.",
+      audioTranscript: null,
+      hasImage: true,
+      imageName: 'prescription.jpg',
+      imageEmoji: '💊',
+      contextActive: false,
+    },
+    verificationSteps: [
+      'Parsing symptom description…',
+      'Extracting medication from prescription image…',
+      'Cross-referencing cardiac event indicators…',
+      'Checking drug-symptom compatibility…',
+      'Applying STEMI protocol heuristics…',
+      'Structuring emergency action plan…',
+    ],
+    result: {
+      severity: 'CRITICAL',
+      verified_facts: [
+        'Chest pain radiating to left arm — classic cardiac event indicator',
+        'Onset 20 minutes ago — within critical 90-min intervention window',
+        'Shortness of breath + sweating = composite cardiac warning signs',
+        'Prescription shows Aspirin 325mg — valid immediate intervention',
+        'No contraindications detected between symptoms and prescription',
+      ],
+      actions: [
+        {
+          label: 'Call Emergency (112)',
+          type: 'call',
+          detail: 'Request ambulance immediately. Stay on the line. Unlock your door.',
+        },
+        {
+          label: 'Chew 325mg Aspirin Now',
+          type: 'reminder',
+          detail: 'Per prescription — chew, do NOT swallow whole. Do not eat or drink anything else.',
+        },
+        {
+          label: 'Sit Upright, Do Not Walk',
+          type: 'reminder',
+          detail: 'Loosen tight clothing. Stay calm. Do not lie flat — sit at 45°.',
+        },
+      ],
+      confidence: 94,
+      why_this_matters:
+        'Every minute without intervention in a cardiac event increases permanent heart damage by ~10%. This action plan may be the difference between life and death.',
+      cross_checks: [
+        'Symptom cluster matches STEMI presentation pattern',
+        'Prescription medication is appropriate for cardiac emergency',
+        'Time window (20 min) still within intervention threshold',
+      ],
+    },
+  },
+  {
+    id: 'flood',
+    label: 'Flood Disaster',
+    icon: '🌊',
+    domain: 'Disaster',
+    color: '#00F5D4',
+    description: 'Rain + traffic feed + flood news',
+    tagline: 'Real-time route intelligence saves lives',
+    inputs: {
+      text: 'Planning to drive from Pune to Mumbai today for an urgent work meeting.',
+      audioTranscript: null,
+      hasImage: false,
+      imageName: null,
+      imageEmoji: null,
+      contextActive: true,
+    },
+    verificationSteps: [
+      'Parsing travel intent…',
+      'Querying live traffic feed for NH-48…',
+      'Cross-referencing IMD rainfall data…',
+      'Checking NDRF deployment alerts…',
+      'Validating alternate route safety…',
+      'Calculating optimal departure window…',
+    ],
+    result: {
+      severity: 'HIGH',
+      verified_facts: [
+        'Heavy rainfall: 52mm/hr recorded at Khalapur (IMD live feed)',
+        'NH-48 (Mumbai-Pune Expressway): 8km jam + 2 active landslide alerts',
+        'NDRF team deployed at Khopoli — road closure imminent within 2 hrs',
+        'Wind speed: 67 km/hr — unsafe for two-wheelers and high-profile vehicles',
+        'IMD forecast: rain easing after 3PM — 4-hour delay window available',
+      ],
+      actions: [
+        {
+          label: 'Delay Departure by 4 Hours',
+          type: 'reminder',
+          detail: 'IMD forecast shows clear window after 3PM. Depart at 4PM for safest conditions.',
+        },
+        {
+          label: 'Take Old Mumbai–Pune Highway',
+          type: 'navigate',
+          detail: 'Via Khandala — currently clear. Adds 45 min but avoids all flood zones.',
+        },
+        {
+          label: 'Alert Your Destination',
+          type: 'reminder',
+          detail: 'Notify meeting organizers of weather delay with this Action Card as evidence.',
+        },
+      ],
+      confidence: 89,
+      why_this_matters:
+        '2 people died on NH-48 in similar monsoon conditions last year. Real-time route intelligence turns a dangerous drive into a safe one.',
+      cross_checks: [
+        'Traffic feed confirms live closure at Khalapur checkpoint',
+        'News alert cross-references NDRF deployment (3 sources)',
+        'IMD weather data consistent with local sensor readings',
+      ],
+    },
+  },
+  {
+    id: 'elderly',
+    label: 'Elderly Care',
+    icon: '👴',
+    domain: 'Care',
+    color: '#7C3AED',
+    description: 'Voice note + medication schedule photo',
+    tagline: 'Preventing a preventable medication error',
+    inputs: {
+      text: null,
+      audioTranscript:
+        "Dadi is confused about her medicines. She already took her blood pressure pill this morning but I'm not sure if she needs to take her diabetes pill right now. It's almost lunchtime and she hasn't eaten yet.",
+      hasImage: true,
+      imageName: 'medication-schedule.jpg',
+      imageEmoji: '📋',
+      contextActive: false,
+    },
+    verificationSteps: [
+      'Transcribing voice note…',
+      'Identifying medications from schedule image…',
+      'Cross-checking dosage timing requirements…',
+      'Analyzing meal-dependency for Metformin…',
+      'Screening for drug interaction risks…',
+      'Generating safe administration plan…',
+    ],
+    result: {
+      severity: 'MEDIUM',
+      verified_facts: [
+        'Amlodipine 5mg (BP) taken this morning — correct per schedule on box',
+        'Metformin 500mg (diabetes) labelled: AFTER MEALS — not before',
+        'Patient has not yet eaten — administering now would cause hypoglycemia risk',
+        'No dangerous interaction detected between Amlodipine and Metformin',
+        'Time ~12:30 PM — safe to ensure lunch first, then administer Metformin',
+      ],
+      actions: [
+        {
+          label: 'Hold Metformin Until After Lunch',
+          type: 'reminder',
+          detail: 'Administer with or immediately after the meal — never on an empty stomach.',
+        },
+        {
+          label: 'Serve Lunch Within 30 Minutes',
+          type: 'reminder',
+          detail: 'Dadi needs to eat soon to maintain glucose schedule. Full meal, not a snack.',
+        },
+        {
+          label: 'Log Both Medications Today',
+          type: 'reminder',
+          detail: 'Mark both doses in the medication diary to prevent accidental double-dosing.',
+        },
+      ],
+      confidence: 91,
+      why_this_matters:
+        'Metformin on an empty stomach is a leading cause of hypoglycemia in elderly patients. This 5-minute check prevents a preventable emergency room visit.',
+      cross_checks: [
+        'Medication photo confirms schedule — Metformin: post-meal only',
+        'Voice note time context aligns with lunch window analysis',
+        'No drug interaction risk between Amlodipine + Metformin (confirmed)',
+      ],
+    },
+  },
+  {
+    id: 'child',
+    label: 'Child Accident',
+    icon: '🚑',
+    domain: 'First Aid',
+    color: '#FF9F1C',
+    description: 'Wound photo + symptom description',
+    tagline: 'The right call at the right time',
+    inputs: {
+      text: "My 5-year-old fell from her bicycle. She has a deep cut on her knee and the bleeding hasn't stopped after 10 minutes of pressure. She's crying and says her knee feels 'funny' — like it's numb.",
+      audioTranscript: null,
+      hasImage: true,
+      imageName: 'wound-photo.jpg',
+      imageEmoji: '🩹',
+      contextActive: false,
+    },
+    verificationSteps: [
+      'Parsing symptom description…',
+      'Analyzing wound image for depth indicators…',
+      'Applying 10-minute bleeding threshold protocol…',
+      'Cross-checking neurological symptom flags…',
+      'Applying age-specific first aid guidelines…',
+      'Structuring triage action plan…',
+    ],
+    result: {
+      severity: 'HIGH',
+      verified_facts: [
+        'Bleeding uncontrolled after 10 minutes — clinical referral threshold exceeded',
+        "Child reports numbness ('funny feeling') — possible nerve proximity involvement",
+        'Age 5: lower clotting factor reserves, higher infection susceptibility',
+        'Bicycle fall mechanism: high probability of embedded gravel debris',
+        "Wound appearance (from photo): deep laceration, likely requires sutures",
+      ],
+      actions: [
+        {
+          label: 'Go to ER Within 30 Minutes',
+          type: 'navigate',
+          detail: 'Wound needs professional assessment. Likely requires sutures + tetanus booster check.',
+        },
+        {
+          label: 'Maintain Firm Pressure En Route',
+          type: 'reminder',
+          detail: 'Use a clean cloth, press firmly. Elevate leg above heart level while traveling.',
+        },
+        {
+          label: 'Rinse with Water Only',
+          type: 'reminder',
+          detail: 'Clean water only — no iodine, no alcohol. Antiseptics damage tissue in children under 12.',
+        },
+      ],
+      confidence: 87,
+      why_this_matters:
+        "Embedded debris and nerve symptoms together indicate ER-level care — not home first aid. Fast action prevents infection, nerve damage, and scarring.",
+      cross_checks: [
+        '10-minute bleeding threshold exceeded — standard clinical referral criterion',
+        "Neurological symptom ('funny feeling') cross-matched with fall mechanism",
+        'Age-specific protocol applied: no alcohol-based antiseptics for under-12s',
+      ],
+    },
+  },
+];
